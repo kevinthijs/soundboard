@@ -1,0 +1,534 @@
+{
+  "languages": [
+    { "code": "pl", "name": "Pools",     "flag": "🇵🇱", "ttsLang": "pl-PL" },
+    { "code": "de", "name": "Duits",     "flag": "🇩🇪", "ttsLang": "de-DE" },
+    { "code": "ro", "name": "Roemeens", "flag": "🇷🇴", "ttsLang": "ro-RO" },
+    { "code": "uk", "name": "Oekraïens","flag": "🇺🇦", "ttsLang": "uk-UA" },
+    { "code": "es", "name": "Spaans",    "flag": "🇪🇸", "ttsLang": "es-ES" },
+    { "code": "it", "name": "Italiaans", "flag": "🇮🇹", "ttsLang": "it-IT" },
+    { "code": "fr", "name": "Frans",     "flag": "🇫🇷", "ttsLang": "fr-FR" },
+    { "code": "en", "name": "Engels",    "flag": "🇬🇧", "ttsLang": "en-GB" }
+  ],
+  "categories": [
+    { "id": "alles",      "label": "Alles"      },
+    { "id": "veiligheid", "label": "Veiligheid" },
+    { "id": "richting",   "label": "Richting"   },
+    { "id": "manoeuvre",  "label": "Manoeuvre"  }
+  ],
+  "commands": [
+
+    {
+      "id": "stop",
+      "category": "veiligheid",
+      "priority": 1,
+      "label": {
+        "nl": "Stop",
+        "pl": "Stój",
+        "de": "Halt",
+        "ro": "Stop",
+        "uk": "Стій",
+        "es": "Para",
+        "it": "Fermati",
+        "fr": "Stop",
+        "en": "Stop"
+      },
+      "audio": {
+        "pl": "/audio/pl/stop.mp3",
+        "de": "/audio/de/stop.mp3",
+        "ro": "/audio/ro/stop.mp3",
+        "uk": "/audio/uk/stop.mp3",
+        "es": "/audio/es/stop.mp3",
+        "it": "/audio/it/stop.mp3",
+        "fr": "/audio/fr/stop.mp3",
+        "en": "/audio/en/stop.mp3"
+      }
+    },
+
+    {
+      "id": "wacht",
+      "category": "veiligheid",
+      "priority": 2,
+      "label": {
+        "nl": "Wacht",
+        "pl": "Czekaj",
+        "de": "Warte",
+        "ro": "Așteaptă",
+        "uk": "Чекай",
+        "es": "Espera",
+        "it": "Aspetta",
+        "fr": "Attendez",
+        "en": "Wait"
+      },
+      "audio": {
+        "pl": "/audio/pl/wacht.mp3",
+        "de": "/audio/de/wacht.mp3",
+        "ro": "/audio/ro/wacht.mp3",
+        "uk": "/audio/uk/wacht.mp3",
+        "es": "/audio/es/wacht.mp3",
+        "it": "/audio/it/wacht.mp3",
+        "fr": "/audio/fr/wacht.mp3",
+        "en": "/audio/en/wacht.mp3"
+      }
+    },
+
+    {
+      "id": "niet_bewegen",
+      "category": "veiligheid",
+      "priority": 3,
+      "label": {
+        "nl": "Niet bewegen",
+        "pl": "Nie ruszaj się",
+        "de": "Nicht bewegen",
+        "ro": "Nu te mișca",
+        "uk": "Не рухайся",
+        "es": "No te muevas",
+        "it": "Non muoverti",
+        "fr": "Ne bougez pas",
+        "en": "Don't move"
+      },
+      "audio": {
+        "pl": "/audio/pl/niet_bewegen.mp3",
+        "de": "/audio/de/niet_bewegen.mp3",
+        "ro": "/audio/ro/niet_bewegen.mp3",
+        "uk": "/audio/uk/niet_bewegen.mp3",
+        "es": "/audio/es/niet_bewegen.mp3",
+        "it": "/audio/it/niet_bewegen.mp3",
+        "fr": "/audio/fr/niet_bewegen.mp3",
+        "en": "/audio/en/niet_bewegen.mp3"
+      }
+    },
+
+    {
+      "id": "lichten_aan",
+      "category": "veiligheid",
+      "priority": 4,
+      "label": {
+        "nl": "Lichten aan",
+        "pl": "Włącz światła",
+        "de": "Licht an",
+        "ro": "Aprinde farurile",
+        "uk": "Увімкни фари",
+        "es": "Enciende las luces",
+        "it": "Accendi i fari",
+        "fr": "Allumez les feux",
+        "en": "Turn lights on"
+      },
+      "audio": {
+        "pl": "/audio/pl/lichten_aan.mp3",
+        "de": "/audio/de/lichten_aan.mp3",
+        "ro": "/audio/ro/lichten_aan.mp3",
+        "uk": "/audio/uk/lichten_aan.mp3",
+        "es": "/audio/es/lichten_aan.mp3",
+        "it": "/audio/it/lichten_aan.mp3",
+        "fr": "/audio/fr/lichten_aan.mp3",
+        "en": "/audio/en/lichten_aan.mp3"
+      }
+    },
+
+    {
+      "id": "links",
+      "category": "richting",
+      "priority": 1,
+      "label": {
+        "nl": "Links",
+        "pl": "W lewo",
+        "de": "Links",
+        "ro": "La stânga",
+        "uk": "Ліворуч",
+        "es": "A la izquierda",
+        "it": "A sinistra",
+        "fr": "À gauche",
+        "en": "Left"
+      },
+      "audio": {
+        "pl": "/audio/pl/links.mp3",
+        "de": "/audio/de/links.mp3",
+        "ro": "/audio/ro/links.mp3",
+        "uk": "/audio/uk/links.mp3",
+        "es": "/audio/es/links.mp3",
+        "it": "/audio/it/links.mp3",
+        "fr": "/audio/fr/links.mp3",
+        "en": "/audio/en/links.mp3"
+      }
+    },
+
+    {
+      "id": "rechts",
+      "category": "richting",
+      "priority": 2,
+      "label": {
+        "nl": "Rechts",
+        "pl": "W prawo",
+        "de": "Rechts",
+        "ro": "La dreapta",
+        "uk": "Праворуч",
+        "es": "A la derecha",
+        "it": "A destra",
+        "fr": "À droite",
+        "en": "Right"
+      },
+      "audio": {
+        "pl": "/audio/pl/rechts.mp3",
+        "de": "/audio/de/rechts.mp3",
+        "ro": "/audio/ro/rechts.mp3",
+        "uk": "/audio/uk/rechts.mp3",
+        "es": "/audio/es/rechts.mp3",
+        "it": "/audio/it/rechts.mp3",
+        "fr": "/audio/fr/rechts.mp3",
+        "en": "/audio/en/rechts.mp3"
+      }
+    },
+
+    {
+      "id": "rechtdoor",
+      "category": "richting",
+      "priority": 3,
+      "label": {
+        "nl": "Rechtdoor",
+        "pl": "Prosto",
+        "de": "Geradeaus",
+        "ro": "Tot drept",
+        "uk": "Прямо",
+        "es": "Todo recto",
+        "it": "Dritto",
+        "fr": "Tout droit",
+        "en": "Straight on"
+      },
+      "audio": {
+        "pl": "/audio/pl/rechtdoor.mp3",
+        "de": "/audio/de/rechtdoor.mp3",
+        "ro": "/audio/ro/rechtdoor.mp3",
+        "uk": "/audio/uk/rechtdoor.mp3",
+        "es": "/audio/es/rechtdoor.mp3",
+        "it": "/audio/it/rechtdoor.mp3",
+        "fr": "/audio/fr/rechtdoor.mp3",
+        "en": "/audio/en/rechtdoor.mp3"
+      }
+    },
+
+    {
+      "id": "meer_links",
+      "category": "richting",
+      "priority": 4,
+      "label": {
+        "nl": "Meer naar links",
+        "pl": "Bardziej w lewo",
+        "de": "Weiter links",
+        "ro": "Mai la stânga",
+        "uk": "Більше ліворуч",
+        "es": "Más izquierda",
+        "it": "Più a sinistra",
+        "fr": "Plus à gauche",
+        "en": "Further left"
+      },
+      "audio": {
+        "pl": "/audio/pl/meer_links.mp3",
+        "de": "/audio/de/meer_links.mp3",
+        "ro": "/audio/ro/meer_links.mp3",
+        "uk": "/audio/uk/meer_links.mp3",
+        "es": "/audio/es/meer_links.mp3",
+        "it": "/audio/it/meer_links.mp3",
+        "fr": "/audio/fr/meer_links.mp3",
+        "en": "/audio/en/meer_links.mp3"
+      }
+    },
+
+    {
+      "id": "meer_rechts",
+      "category": "richting",
+      "priority": 5,
+      "label": {
+        "nl": "Meer naar rechts",
+        "pl": "Bardziej w prawo",
+        "de": "Weiter rechts",
+        "ro": "Mai la dreapta",
+        "uk": "Більше праворуч",
+        "es": "Más derecha",
+        "it": "Più a destra",
+        "fr": "Plus à droite",
+        "en": "Further right"
+      },
+      "audio": {
+        "pl": "/audio/pl/meer_rechts.mp3",
+        "de": "/audio/de/meer_rechts.mp3",
+        "ro": "/audio/ro/meer_rechts.mp3",
+        "uk": "/audio/uk/meer_rechts.mp3",
+        "es": "/audio/es/meer_rechts.mp3",
+        "it": "/audio/it/meer_rechts.mp3",
+        "fr": "/audio/fr/meer_rechts.mp3",
+        "en": "/audio/en/meer_rechts.mp3"
+      }
+    },
+
+    {
+      "id": "bocht_ruim",
+      "category": "richting",
+      "priority": 6,
+      "label": {
+        "nl": "Neem bocht ruim",
+        "pl": "Skręć szeroko",
+        "de": "Weit abbiegen",
+        "ro": "Virează larg",
+        "uk": "Широкий поворот",
+        "es": "Gira amplio",
+        "it": "Gira largo",
+        "fr": "Virez large",
+        "en": "Swing wide"
+      },
+      "audio": {
+        "pl": "/audio/pl/bocht_ruim.mp3",
+        "de": "/audio/de/bocht_ruim.mp3",
+        "ro": "/audio/ro/bocht_ruim.mp3",
+        "uk": "/audio/uk/bocht_ruim.mp3",
+        "es": "/audio/es/bocht_ruim.mp3",
+        "it": "/audio/it/bocht_ruim.mp3",
+        "fr": "/audio/fr/bocht_ruim.mp3",
+        "en": "/audio/en/bocht_ruim.mp3"
+      }
+    },
+
+    {
+      "id": "langzaam",
+      "category": "manoeuvre",
+      "priority": 1,
+      "label": {
+        "nl": "Langzaam",
+        "pl": "Wolno",
+        "de": "Langsam",
+        "ro": "Încet",
+        "uk": "Повільно",
+        "es": "Despacio",
+        "it": "Piano",
+        "fr": "Lentement",
+        "en": "Slowly"
+      },
+      "audio": {
+        "pl": "/audio/pl/langzaam.mp3",
+        "de": "/audio/de/langzaam.mp3",
+        "ro": "/audio/ro/langzaam.mp3",
+        "uk": "/audio/uk/langzaam.mp3",
+        "es": "/audio/es/langzaam.mp3",
+        "it": "/audio/it/langzaam.mp3",
+        "fr": "/audio/fr/langzaam.mp3",
+        "en": "/audio/en/langzaam.mp3"
+      }
+    },
+
+    {
+      "id": "achteruit",
+      "category": "manoeuvre",
+      "priority": 2,
+      "label": {
+        "nl": "Achteruit",
+        "pl": "Cofaj",
+        "de": "Zurück",
+        "ro": "Înapoi",
+        "uk": "Назад",
+        "es": "Atrás",
+        "it": "Indietro",
+        "fr": "En arrière",
+        "en": "Reverse"
+      },
+      "audio": {
+        "pl": "/audio/pl/achteruit.mp3",
+        "de": "/audio/de/achteruit.mp3",
+        "ro": "/audio/ro/achteruit.mp3",
+        "uk": "/audio/uk/achteruit.mp3",
+        "es": "/audio/es/achteruit.mp3",
+        "it": "/audio/it/achteruit.mp3",
+        "fr": "/audio/fr/achteruit.mp3",
+        "en": "/audio/en/achteruit.mp3"
+      }
+    },
+
+    {
+      "id": "vooruit",
+      "category": "manoeuvre",
+      "priority": 3,
+      "label": {
+        "nl": "Vooruit",
+        "pl": "Do przodu",
+        "de": "Vorwärts",
+        "ro": "Înaintează",
+        "uk": "Вперед",
+        "es": "Adelante",
+        "it": "Avanti",
+        "fr": "En avant",
+        "en": "Forward"
+      },
+      "audio": {
+        "pl": "/audio/pl/vooruit.mp3",
+        "de": "/audio/de/vooruit.mp3",
+        "ro": "/audio/ro/vooruit.mp3",
+        "uk": "/audio/uk/vooruit.mp3",
+        "es": "/audio/es/vooruit.mp3",
+        "it": "/audio/it/vooruit.mp3",
+        "fr": "/audio/fr/vooruit.mp3",
+        "en": "/audio/en/vooruit.mp3"
+      }
+    },
+
+    {
+      "id": "tegenrichting",
+      "category": "manoeuvre",
+      "priority": 4,
+      "label": {
+        "nl": "Tegenrichting",
+        "pl": "Pod prąd",
+        "de": "Gegenfahrbahn",
+        "ro": "Sens opus",
+        "uk": "Зустрічна смуга",
+        "es": "Contramano",
+        "it": "Contromano",
+        "fr": "Sens inverse",
+        "en": "Opposite lane"
+      },
+      "audio": {
+        "pl": "/audio/pl/tegenrichting.mp3",
+        "de": "/audio/de/tegenrichting.mp3",
+        "ro": "/audio/ro/tegenrichting.mp3",
+        "uk": "/audio/uk/tegenrichting.mp3",
+        "es": "/audio/es/tegenrichting.mp3",
+        "it": "/audio/it/tegenrichting.mp3",
+        "fr": "/audio/fr/tegenrichting.mp3",
+        "en": "/audio/en/tegenrichting.mp3"
+      }
+    },
+
+    {
+      "id": "volg_mij",
+      "category": "manoeuvre",
+      "priority": 5,
+      "label": {
+        "nl": "Volg mij",
+        "pl": "Jedź za mną",
+        "de": "Folge mir",
+        "ro": "Urmează-mă",
+        "uk": "Їдь за мною",
+        "es": "Sígueme",
+        "it": "Seguimi",
+        "fr": "Suivez-moi",
+        "en": "Follow me"
+      },
+      "audio": {
+        "pl": "/audio/pl/volg_mij.mp3",
+        "de": "/audio/de/volg_mij.mp3",
+        "ro": "/audio/ro/volg_mij.mp3",
+        "uk": "/audio/uk/volg_mij.mp3",
+        "es": "/audio/es/volg_mij.mp3",
+        "it": "/audio/it/volg_mij.mp3",
+        "fr": "/audio/fr/volg_mij.mp3",
+        "en": "/audio/en/volg_mij.mp3"
+      }
+    },
+
+    {
+      "id": "hou_afstand",
+      "category": "manoeuvre",
+      "priority": 6,
+      "label": {
+        "nl": "Hou afstand",
+        "pl": "Zachowaj odstęp",
+        "de": "Abstand halten",
+        "ro": "Păstrează distanța",
+        "uk": "Тримай дистанцію",
+        "es": "Mantén distancia",
+        "it": "Mantieni distanza",
+        "fr": "Gardez la distance",
+        "en": "Keep distance"
+      },
+      "audio": {
+        "pl": "/audio/pl/hou_afstand.mp3",
+        "de": "/audio/de/hou_afstand.mp3",
+        "ro": "/audio/ro/hou_afstand.mp3",
+        "uk": "/audio/uk/hou_afstand.mp3",
+        "es": "/audio/es/hou_afstand.mp3",
+        "it": "/audio/it/hou_afstand.mp3",
+        "fr": "/audio/fr/hou_afstand.mp3",
+        "en": "/audio/en/hou_afstand.mp3"
+      }
+    },
+
+    {
+      "id": "kom_dichter",
+      "category": "manoeuvre",
+      "priority": 7,
+      "label": {
+        "nl": "Kom dichter",
+        "pl": "Jedź bliżej",
+        "de": "Näher heran",
+        "ro": "Apropie-te",
+        "uk": "Ближче",
+        "es": "Acércate",
+        "it": "Avvicinati",
+        "fr": "Rapprochez-vous",
+        "en": "Come closer"
+      },
+      "audio": {
+        "pl": "/audio/pl/kom_dichter.mp3",
+        "de": "/audio/de/kom_dichter.mp3",
+        "ro": "/audio/ro/kom_dichter.mp3",
+        "uk": "/audio/uk/kom_dichter.mp3",
+        "es": "/audio/es/kom_dichter.mp3",
+        "it": "/audio/it/kom_dichter.mp3",
+        "fr": "/audio/fr/kom_dichter.mp3",
+        "en": "/audio/en/kom_dichter.mp3"
+      }
+    },
+
+    {
+      "id": "parkeer_hier",
+      "category": "manoeuvre",
+      "priority": 8,
+      "label": {
+        "nl": "Parkeer hier",
+        "pl": "Parkuj tutaj",
+        "de": "Hier parken",
+        "ro": "Parcheaza aici",
+        "uk": "Паркуй тут",
+        "es": "Estaciona aquí",
+        "it": "Parcheggia qui",
+        "fr": "Garez-vous ici",
+        "en": "Park here"
+      },
+      "audio": {
+        "pl": "/audio/pl/parkeer_hier.mp3",
+        "de": "/audio/de/parkeer_hier.mp3",
+        "ro": "/audio/ro/parkeer_hier.mp3",
+        "uk": "/audio/uk/parkeer_hier.mp3",
+        "es": "/audio/es/parkeer_hier.mp3",
+        "it": "/audio/it/parkeer_hier.mp3",
+        "fr": "/audio/fr/parkeer_hier.mp3",
+        "en": "/audio/en/parkeer_hier.mp3"
+      }
+    },
+
+    {
+      "id": "sneller",
+      "category": "manoeuvre",
+      "priority": 9,
+      "label": {
+        "nl": "Sneller",
+        "pl": "Szybciej",
+        "de": "Schneller",
+        "ro": "Mai repede",
+        "uk": "Швидше",
+        "es": "Más rápido",
+        "it": "Più veloce",
+        "fr": "Plus vite",
+        "en": "Faster"
+      },
+      "audio": {
+        "pl": "/audio/pl/sneller.mp3",
+        "de": "/audio/de/sneller.mp3",
+        "ro": "/audio/ro/sneller.mp3",
+        "uk": "/audio/uk/sneller.mp3",
+        "es": "/audio/es/sneller.mp3",
+        "it": "/audio/it/sneller.mp3",
+        "fr": "/audio/fr/sneller.mp3",
+        "en": "/audio/en/sneller.mp3"
+      }
+    }
+
+  ]
+}

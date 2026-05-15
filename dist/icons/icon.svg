@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0f172a"/>
+  <!-- Megaphone body -->
+  <rect x="80" y="210" width="160" height="92" rx="18" fill="#3b82f6"/>
+  <!-- Megaphone cone -->
+  <polygon points="240,195 240,317 400,370 400,142" fill="#60a5fa"/>
+  <!-- Sound waves -->
+  <path d="M420 230 Q460 256 420 282" stroke="#f59e0b" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <path d="M420 200 Q490 256 420 312" stroke="#f59e0b" stroke-width="14" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <!-- Handle -->
+  <rect x="108" y="302" width="56" height="80" rx="14" fill="#1e40af"/>
+</svg>

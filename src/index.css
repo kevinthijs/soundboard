@@ -1,0 +1,145 @@
+@import '@fontsource/rajdhani/500.css';
+@import '@fontsource/rajdhani/600.css';
+@import '@fontsource/rajdhani/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #0f172a;
+
+  --c-safety: #ef4444;
+  --c-safety-dim: rgba(239, 68, 68, 0.12);
+  --c-safety-glow: rgba(239, 68, 68, 0.4);
+
+  --c-direction: #3b82f6;
+  --c-direction-dim: rgba(59, 130, 246, 0.12);
+  --c-direction-glow: rgba(59, 130, 246, 0.4);
+
+  --c-manoeuvre: #f59e0b;
+  --c-manoeuvre-dim: rgba(245, 158, 11, 0.12);
+  --c-manoeuvre-glow: rgba(245, 158, 11, 0.4);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  height: 100dvh;
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: #e2e8f0;
+  font-family: 'Rajdhani', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Subtle scanline texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Category button glows */
+.btn-veiligheid {
+  border-color: var(--c-safety);
+  background-color: var(--c-safety-dim);
+}
+.btn-veiligheid:active,
+.btn-veiligheid.is-playing {
+  background-color: rgba(239, 68, 68, 0.22);
+  box-shadow: 0 0 0 2px var(--c-safety), 0 0 24px var(--c-safety-glow);
+}
+
+.btn-richting {
+  border-color: var(--c-direction);
+  background-color: var(--c-direction-dim);
+}
+.btn-richting:active,
+.btn-richting.is-playing {
+  background-color: rgba(59, 130, 246, 0.22);
+  box-shadow: 0 0 0 2px var(--c-direction), 0 0 24px var(--c-direction-glow);
+}
+
+.btn-manoeuvre {
+  border-color: var(--c-manoeuvre);
+  background-color: var(--c-manoeuvre-dim);
+}
+.btn-manoeuvre:active,
+.btn-manoeuvre.is-playing {
+  background-color: rgba(245, 158, 11, 0.22);
+  box-shadow: 0 0 0 2px var(--c-manoeuvre), 0 0 24px var(--c-manoeuvre-glow);
+}
+
+/* Playing pulse animation */
+@keyframes pulse-ring {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.08); }
+}
+.is-playing::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  border: 2px solid var(--pulse-color, #fff);
+  animation: pulse-ring 0.8s ease-out infinite;
+  pointer-events: none;
+}
+.btn-veiligheid { --pulse-color: var(--c-safety); }
+.btn-richting   { --pulse-color: var(--c-direction); }
+.btn-manoeuvre  { --pulse-color: var(--c-manoeuvre); }
+
+/* Scrollable grid area */
+.grid-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.grid-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.grid-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.grid-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 2px;
+}
+
+/* Landscape: 3 columns */
+@media (orientation: landscape) {
+  .cmd-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Safe area padding for notched phones */
+.safe-bottom {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
