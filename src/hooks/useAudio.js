@@ -1,14 +1,26 @@
 import { useState, useCallback, useRef } from 'react'
 
-// Module-level reference to the active Audio element (at most one at a time)
-let activeAudio = null
+// Single persistent element — iOS requires a reusable audio element rather
+// than a new Audio() per tap. Detached objects are unreliable on WebKit.
+const audioEl = document.createElement('audio')
+audioEl.setAttribute('playsinline', '')
+
+let ttsUnlocked = false
+
+// Must be called synchronously inside the user gesture handler.
+// Speaks a silent utterance to unlock speechSynthesis on iOS, so that
+// subsequent async calls (e.g. from a .catch()) are still allowed.
+function unlockTTS() {
+  if (ttsUnlocked || !('speechSynthesis' in window)) return
+  const silent = new SpeechSynthesisUtterance('')
+  silent.volume = 0
+  window.speechSynthesis.speak(silent)
+  ttsUnlocked = true
+}
 
 function cancelActive() {
-  if (activeAudio) {
-    activeAudio.pause()
-    activeAudio.src = ''
-    activeAudio = null
-  }
+  audioEl.pause()
+  audioEl.removeAttribute('src')
   window.speechSynthesis?.cancel()
 }
 
@@ -34,6 +46,7 @@ export function useAudio() {
 
   const play = useCallback((command, lang, ttsLang) => {
     navigator.vibrate?.(40)
+    unlockTTS()  // must run synchronously within the gesture
     cancelActive()
 
     sessionRef.current += 1
@@ -47,23 +60,21 @@ export function useAudio() {
     // Guard: if a newer play() has run before this callback fires, do nothing
     const onEnd = () => {
       if (sessionRef.current !== mySession) return
-      activeAudio = null
       setPlayingId(null)
     }
 
     if (src) {
-      const audio = new Audio(src)
-      activeAudio = audio
+      audioEl.src = src
+      audioEl.currentTime = 0
 
-      audio.play()
+      audioEl.play()
         .then(() => {
-          if (sessionRef.current !== mySession) return
-          audio.addEventListener('ended', onEnd, { once: true })
-          audio.addEventListener('error', onEnd, { once: true })
+          if (sessionRef.current !== mySession) { audioEl.pause(); return }
+          audioEl.addEventListener('ended', onEnd, { once: true })
+          audioEl.addEventListener('error', onEnd, { once: true })
         })
         .catch(() => {
           if (sessionRef.current !== mySession) return
-          activeAudio = null
           speakTTS(text, ttsLang, onEnd)
         })
     } else {
