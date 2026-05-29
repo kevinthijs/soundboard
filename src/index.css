@@ -7,19 +7,23 @@
 @tailwind utilities;
 
 :root {
-  --bg-base: #0f172a;
+  --bg-base: #fffdf5;
+  --bg-panel: #ffffff;
+  --text-base: #1f1f1f;
+  --text-muted: #5b5b5b;
+  --line-soft: #e9ddaf;
 
-  --c-safety: #ef4444;
-  --c-safety-dim: rgba(239, 68, 68, 0.12);
-  --c-safety-glow: rgba(239, 68, 68, 0.4);
+  --c-safety: #c1121f;
+  --c-safety-dim: rgba(193, 18, 31, 0.1);
+  --c-safety-glow: rgba(193, 18, 31, 0.28);
 
-  --c-direction: #3b82f6;
-  --c-direction-dim: rgba(59, 130, 246, 0.12);
-  --c-direction-glow: rgba(59, 130, 246, 0.4);
+  --c-direction: #f5b700;
+  --c-direction-dim: rgba(245, 183, 0, 0.15);
+  --c-direction-glow: rgba(245, 183, 0, 0.28);
 
-  --c-manoeuvre: #f59e0b;
-  --c-manoeuvre-dim: rgba(245, 158, 11, 0.12);
-  --c-manoeuvre-glow: rgba(245, 158, 11, 0.4);
+  --c-manoeuvre: #e63946;
+  --c-manoeuvre-dim: rgba(230, 57, 70, 0.1);
+  --c-manoeuvre-glow: rgba(230, 57, 70, 0.3);
 }
 
 * {
@@ -35,7 +39,7 @@ html, body, #root {
 
 body {
   background-color: var(--bg-base);
-  color: #e2e8f0;
+  color: var(--text-base);
   font-family: 'Rajdhani', sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
@@ -46,54 +50,64 @@ body {
   flex-direction: column;
 }
 
-/* Subtle scanline texture overlay */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.03) 2px,
-    rgba(0, 0, 0, 0.03) 4px
-  );
+  background-image:
+    linear-gradient(180deg, rgba(255, 251, 235, 0.94) 0%, rgba(255, 250, 228, 0.9) 100%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(245, 183, 0, 0.14) 0 12px,
+      rgba(255, 255, 255, 0.9) 12px 24px
+    );
+  background-size: auto, 160px 160px;
+  background-position: center, center;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.7));
   pointer-events: none;
-  z-index: 9999;
+  z-index: -1;
 }
 
-/* Category button glows */
 .btn-veiligheid {
   border-color: var(--c-safety);
-  background-color: var(--c-safety-dim);
+  background-color: var(--bg-panel);
 }
 .btn-veiligheid:active,
 .btn-veiligheid.is-playing {
-  background-color: rgba(239, 68, 68, 0.22);
-  box-shadow: 0 0 0 2px var(--c-safety), 0 0 24px var(--c-safety-glow);
+  background-color: var(--c-safety-dim);
+  box-shadow: 0 0 0 2px var(--c-safety), 0 0 18px var(--c-safety-glow);
 }
 
 .btn-richting {
   border-color: var(--c-direction);
-  background-color: var(--c-direction-dim);
+  background-color: var(--bg-panel);
 }
 .btn-richting:active,
 .btn-richting.is-playing {
-  background-color: rgba(59, 130, 246, 0.22);
-  box-shadow: 0 0 0 2px var(--c-direction), 0 0 24px var(--c-direction-glow);
+  background-color: var(--c-direction-dim);
+  box-shadow: 0 0 0 2px var(--c-direction), 0 0 18px var(--c-direction-glow);
 }
 
 .btn-manoeuvre {
   border-color: var(--c-manoeuvre);
-  background-color: var(--c-manoeuvre-dim);
+  background-color: var(--bg-panel);
 }
 .btn-manoeuvre:active,
 .btn-manoeuvre.is-playing {
-  background-color: rgba(245, 158, 11, 0.22);
-  box-shadow: 0 0 0 2px var(--c-manoeuvre), 0 0 24px var(--c-manoeuvre-glow);
+  background-color: var(--c-manoeuvre-dim);
+  box-shadow: 0 0 0 2px var(--c-manoeuvre), 0 0 18px var(--c-manoeuvre-glow);
 }
 
-/* Playing pulse animation */
+.btn-radio {
+  border-color: #d97706;
+  background-color: var(--bg-panel);
+}
+.btn-radio:active,
+.btn-radio.is-playing {
+  background-color: rgba(245, 183, 0, 0.18);
+  box-shadow: 0 0 0 2px #d97706, 0 0 18px rgba(217, 119, 6, 0.28);
+}
+
 @keyframes pulse-ring {
   0% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(1.08); }
@@ -110,8 +124,8 @@ body::before {
 .btn-veiligheid { --pulse-color: var(--c-safety); }
 .btn-richting   { --pulse-color: var(--c-direction); }
 .btn-manoeuvre  { --pulse-color: var(--c-manoeuvre); }
+.btn-radio      { --pulse-color: #d97706; }
 
-/* Scrollable grid area */
 .grid-scroll {
   flex: 1;
   overflow-y: auto;
@@ -125,21 +139,26 @@ body::before {
   background: transparent;
 }
 .grid-scroll::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.2);
+  background: rgba(160, 130, 22, 0.34);
   border-radius: 2px;
 }
 
-/* Landscape: 3 columns */
 @media (orientation: landscape) {
   .cmd-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* Safe area padding for notched phones */
 .safe-bottom {
   padding-bottom: max(12px, env(safe-area-inset-bottom));
 }
 .safe-top {
   padding-top: env(safe-area-inset-top);
+}
+
+@media (max-width: 640px) {
+  .cmd-grid {
+    gap: 0.65rem;
+    padding: 0.75rem;
+  }
 }

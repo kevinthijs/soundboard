@@ -7,6 +7,47 @@ audioEl.setAttribute('playsinline', '')
 
 let ttsUnlocked = false
 
+// Tuned for short, high-intelligibility radio-style instructions.
+const TTS_PRESETS = {
+  pl: { rate: 0.86, pitch: 0.94 },
+  de: { rate: 0.84, pitch: 0.93 },
+  ro: { rate: 0.87, pitch: 0.95 },
+  uk: { rate: 0.84, pitch: 0.93 },
+  es: { rate: 0.88, pitch: 0.95 },
+  it: { rate: 0.87, pitch: 0.95 },
+  fr: { rate: 0.86, pitch: 0.95 },
+  en: { rate: 0.86, pitch: 0.94 },
+}
+
+function normalizeTTSText(text) {
+  const clean = String(text ?? '')
+    .replace(/[\/|]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  if (!clean) return ''
+
+  // Add a short ending pause for clearer phrase separation on radio playback.
+  return /[.!?]$/.test(clean) ? clean : `${clean}.`
+}
+
+function pickBestVoice(ttsLang) {
+  if (!('speechSynthesis' in window)) return null
+  const voices = window.speechSynthesis.getVoices()
+  if (!voices.length) return null
+
+  const lang = ttsLang.toLowerCase()
+  const base = lang.split('-')[0]
+
+  const byExact = voices.find((v) => v.lang?.toLowerCase() === lang)
+  if (byExact) return byExact
+
+  const byBase = voices.find((v) => v.lang?.toLowerCase().startsWith(`${base}-`))
+  if (byBase) return byBase
+
+  return voices.find((v) => v.default) ?? voices[0]
+}
+
 // Must be called synchronously inside the user gesture handler.
 // Speaks a silent utterance to unlock speechSynthesis on iOS, so that
 // subsequent async calls (e.g. from a .catch()) are still allowed.
@@ -24,18 +65,24 @@ function cancelActive() {
   window.speechSynthesis?.cancel()
 }
 
-function speakTTS(text, ttsLang, onEnd) {
+function speakTTS(text, langCode, ttsLang, onEnd) {
   if (!('speechSynthesis' in window)) {
     onEnd()
     return
   }
-  const utterance = new SpeechSynthesisUtterance(text)
+
+  const utterance = new SpeechSynthesisUtterance(normalizeTTSText(text))
+  const preset = TTS_PRESETS[langCode] ?? { rate: 0.86, pitch: 0.94 }
+  const voice = pickBestVoice(ttsLang)
+
   utterance.lang = ttsLang
-  utterance.rate = 0.88
-  utterance.pitch = 1
+  if (voice) utterance.voice = voice
+  utterance.rate = preset.rate
+  utterance.pitch = preset.pitch
   utterance.volume = 1
   utterance.onend = onEnd
   utterance.onerror = onEnd
+
   window.speechSynthesis.speak(utterance)
 }
 
@@ -53,7 +100,7 @@ export function useAudio() {
     const mySession = sessionRef.current
 
     const src = command.audio?.[lang]
-    const text = command.label[lang]
+    const text = command.label?.[lang] ?? command.label?.en ?? command.label?.nl ?? ''
 
     setPlayingId(command.id)
 
@@ -75,10 +122,10 @@ export function useAudio() {
         })
         .catch(() => {
           if (sessionRef.current !== mySession) return
-          speakTTS(text, ttsLang, onEnd)
+          speakTTS(text, lang, ttsLang, onEnd)
         })
     } else {
-      speakTTS(text, ttsLang, onEnd)
+      speakTTS(text, lang, ttsLang, onEnd)
     }
   }, [])
 
