@@ -798,18 +798,18 @@
       "category": "radio",
       "priority": 8,
       "label": {
-        "nl": "Houd het verkeer tegen.",
-        "pl": "Wstrzymaj ruch.",
-        "de": "Halte den Verkehr an.",
-        "ro": "Oprește traficul.",
-        "uk": "Зупини рух.",
-        "ru": "Останови движение.",
-        "be": "Спыні рух.",
-        "pt": "Para o trânsito.",
-        "es": "Detén el tráfico.",
-        "it": "Ferma il traffico.",
-        "fr": "Bloquez la circulation.",
-        "en": "Hold the traffic."
+        "nl": "Ik ga het verkeer tegenhouden, wacht even.",
+        "pl": "Zatrzymuję ruch, chwilę.",
+        "de": "Ich halte den Verkehr an, warte kurz.",
+        "ro": "O să opresc traficul, stai puțin.",
+        "uk": "Я зупиняю рух, зачекай.",
+        "ru": "Я останавливаю движение, подожди.",
+        "be": "Я спыняю рух, пачакай.",
+        "pt": "Vou parar o trânsito, aguarda.",
+        "es": "Voy a detener el tráfico, espera un momento.",
+        "it": "Fermo il traffico, aspetta un attimo.",
+        "fr": "Je vais bloquer la circulation, attends un instant.",
+        "en": "I will hold the traffic, wait a moment."
       }
     },
     {
@@ -1190,6 +1190,177 @@
         "it": "Fermati al mio segnale.",
         "fr": "Arrêtez-vous à mon signal.",
         "en": "Stop on my signal."
+      }
+    },
+    {
+      "id": "kanaal_check",
+      "category": "radio",
+      "priority": 28,
+      "label": {
+        "nl": "Op welk kanaal zit je?",
+        "pl": "Na którym kanale jesteś?",
+        "de": "Auf welchem Kanal bist du?",
+        "ro": "Pe ce canal ești?",
+        "uk": "На якому каналі ти?",
+        "ru": "На каком канале ты?",
+        "be": "На якім канале ты?",
+        "pt": "Em que canal estás?",
+        "es": "¿En qué canal estás?",
+        "it": "Su quale canale sei?",
+        "fr": "Sur quel canal es-tu ?",
+        "en": "What channel are you on?"
+      }
+    },
+    {
+      "id": "fm_of_am",
+      "category": "radio",
+      "priority": 29,
+      "label": {
+        "nl": "FM of AM?",
+        "pl": "FM czy AM?",
+        "de": "FM oder AM?",
+        "ro": "FM sau AM?",
+        "uk": "FM чи AM?",
+        "ru": "FM или AM?",
+        "be": "FM ці AM?",
+        "pt": "FM ou AM?",
+        "es": "¿FM o AM?",
+        "it": "FM o AM?",
+        "fr": "FM ou AM ?",
+        "en": "FM or AM?"
+      }
+    },
+    {
+      "id": "auto_haalt_in",
+      "category": "radio",
+      "priority": 30,
+      "label": {
+        "nl": "Er haalt een auto in.",
+        "pl": "Wyprzedza nas samochód osobowy.",
+        "de": "Ein Auto überholt uns.",
+        "ro": "Un autoturism ne depășește.",
+        "uk": "Нас обганяє легковий автомобіль.",
+        "ru": "Нас обгоняет легковой автомобиль.",
+        "be": "Нас абганяе легкавы аўтамабіль.",
+        "pt": "Um carro está a ultrapassar-nos.",
+        "es": "Un coche nos está adelantando.",
+        "it": "Un'auto ci sta sorpassando.",
+        "fr": "Une voiture nous dépasse.",
+        "en": "A car is overtaking us."
+      }
+    },
+    {
+      "id": "vrachtwagen_haalt_in",
+      "category": "radio",
+      "priority": 31,
+      "label": {
+        "nl": "Er haalt een vrachtwagen in.",
+        "pl": "Wyprzedza nas ciężarówka.",
+        "de": "Ein LKW überholt uns.",
+        "ro": "Un camion ne depășește.",
+        "uk": "Нас обганяє вантажівка.",
+        "ru": "Нас обгоняет грузовик.",
+        "be": "Нас абганяе грузавік.",
+        "pt": "Um camião está a ultrapassar-nos.",
+        "es": "Un camión nos está adelantando.",
+        "it": "Un camion ci sta sorpassando.",
+        "fr": "Un camion nous dépasse.",
+        "en": "A truck is overtaking us."
+      }
+    },
+    {
+      "id": "rijstrook_1_vrij",
+      "category": "radio",
+      "priority": 32,
+      "label": {
+        "nl": "1ste rijstrook is vrij.",
+        "pl": "Pierwszy pas jest wolny.",
+        "de": "Erste Spur ist frei.",
+        "ro": "Prima bandă este liberă.",
+        "uk": "Перша смуга вільна.",
+        "ru": "Первая полоса свободна.",
+        "be": "Першая паласа свабодная.",
+        "pt": "A 1.ª faixa está livre.",
+        "es": "El primer carril está libre.",
+        "it": "La prima corsia è libera.",
+        "fr": "La première voie est libre.",
+        "en": "First lane is clear."
+      }
+    },
+    {
+      "id": "rijstrook_2_vrij",
+      "category": "radio",
+      "priority": 33,
+      "label": {
+        "nl": "2de rijstrook is vrij.",
+        "pl": "Drugi pas jest wolny.",
+        "de": "Zweite Spur ist frei.",
+        "ro": "A doua bandă este liberă.",
+        "uk": "Друга смуга вільна.",
+        "ru": "Вторая полоса свободна.",
+        "be": "Другая паласа свабодная.",
+        "pt": "A 2.ª faixa está livre.",
+        "es": "El segundo carril está libre.",
+        "it": "La seconda corsia è libera.",
+        "fr": "La deuxième voie est libre.",
+        "en": "Second lane is clear."
+      }
+    },
+    {
+      "id": "controleer_kettingen",
+      "category": "radio",
+      "priority": 34,
+      "label": {
+        "nl": "Controleer uw kettingen.",
+        "pl": "Sprawdź swoje łańcuchy.",
+        "de": "Prüfe deine Ketten.",
+        "ro": "Verifică-ți lanțurile.",
+        "uk": "Перевір свої ланцюги.",
+        "ru": "Проверь свои цепи.",
+        "be": "Праверы свае ланцугі.",
+        "pt": "Verifica as tuas correntes.",
+        "es": "Revisa tus cadenas.",
+        "it": "Controlla le tue catene.",
+        "fr": "Vérifiez vos chaînes.",
+        "en": "Check your chains."
+      }
+    },
+    {
+      "id": "paaltjes_links",
+      "category": "radio",
+      "priority": 35,
+      "label": {
+        "nl": "Paaltjes links.",
+        "pl": "Słupki po lewej.",
+        "de": "Poller links.",
+        "ro": "Stâlpi pe stânga.",
+        "uk": "Стовпчики ліворуч.",
+        "ru": "Столбики слева.",
+        "be": "Слупкі злева.",
+        "pt": "Balizas à esquerda.",
+        "es": "Balizas a la izquierda.",
+        "it": "Paletti a sinistra.",
+        "fr": "Balises à gauche.",
+        "en": "Posts on the left."
+      }
+    },
+    {
+      "id": "paaltjes_rechts",
+      "category": "radio",
+      "priority": 36,
+      "label": {
+        "nl": "Paaltjes rechts.",
+        "pl": "Słupki po prawej.",
+        "de": "Poller rechts.",
+        "ro": "Stâlpi pe dreapta.",
+        "uk": "Стовпчики праворуч.",
+        "ru": "Столбики справа.",
+        "be": "Слупкі справа.",
+        "pt": "Balizas à direita.",
+        "es": "Balizas a la derecha.",
+        "it": "Paletti a destra.",
+        "fr": "Balises à droite.",
+        "en": "Posts on the right."
       }
     }
   ]
