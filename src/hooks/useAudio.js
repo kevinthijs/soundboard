@@ -13,6 +13,9 @@ const TTS_PRESETS = {
   de: { rate: 0.84, pitch: 0.93 },
   ro: { rate: 0.87, pitch: 0.95 },
   uk: { rate: 0.84, pitch: 0.93 },
+  ru: { rate: 0.84, pitch: 0.93 },
+  be: { rate: 0.84, pitch: 0.93 },
+  pt: { rate: 0.87, pitch: 0.94 },
   es: { rate: 0.88, pitch: 0.95 },
   it: { rate: 0.87, pitch: 0.95 },
   fr: { rate: 0.86, pitch: 0.95 },
@@ -44,6 +47,12 @@ function pickBestVoice(ttsLang) {
 
   const byBase = voices.find((v) => v.lang?.toLowerCase().startsWith(`${base}-`))
   if (byBase) return byBase
+
+  // be-BY has no TTS support in browsers; fall back to Russian voice for Cyrillic
+  if (base === 'be') {
+    const ruVoice = voices.find((v) => v.lang?.toLowerCase().startsWith('ru-'))
+    if (ruVoice) return ruVoice
+  }
 
   return voices.find((v) => v.default) ?? voices[0]
 }
