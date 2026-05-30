@@ -41,10 +41,13 @@ export default function App() {
 
       <main className="grid-scroll safe-bottom">
         {category === 'favorieten' && visibleCommands.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full gap-3 p-8 text-center opacity-50">
+          <div className="flex flex-col items-center justify-center h-full gap-4 p-8 text-center">
             <span className="text-5xl">⭐</span>
-            <p className="font-bold text-lg text-zinc-700">Nog geen favorieten</p>
-            <p className="text-sm text-zinc-500">Houd een knop lang ingedrukt om hem hier toe te voegen.</p>
+            <p className="font-extrabold text-xl text-zinc-700">Nog geen favorieten</p>
+            <div className="max-w-xs space-y-2 text-sm text-zinc-500 leading-relaxed">
+              <p>Ga naar een categorie en <strong className="text-zinc-700">houd een knop lang ingedrukt</strong> om hem aan je favorieten toe te voegen.</p>
+              <p>Je favorieten worden bewaard op dit toestel.</p>
+            </div>
           </div>
         ) : (
           <div className="cmd-grid grid grid-cols-2 gap-2.5 p-3 sm:grid-cols-3 lg:grid-cols-4">
